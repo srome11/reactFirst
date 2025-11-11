@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+#node_modules added - so other machine can just git clone and run npm install
 node_modules
 dist
 dist-ssr
