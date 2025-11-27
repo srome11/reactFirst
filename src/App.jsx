@@ -22,52 +22,41 @@ const list = [
   },
 ]
 
-function App() {
-  return (
+const App = () => ( 
     <div>
+
       <h1>My Hacker Stories</h1>
 
-      <label htmlFor="search">Search:</label>
-      <input id="search" type="text" />
+      <Search />
 
       <hr />
-
-      <ul>
-        {list.map(function (item) { 
-            return (
-              <li key={item.objectID}>
-                <span style={{ marginRight: '10px' }}>
-                  <a href={item.url}>{item.title}</a>
-                </span>
-                <span style={{ marginRight: '10px' }}>{item.author}</span>
-                <span style={{ 
-                  marginRight: '10px',
-                  backgroundColor: '#e3f2fd',
-                  color: '#1976d2',
-                  padding: '4px 8px',
-                  borderRadius: '4px',
-                  fontSize: '0.9em'
-                }}>
-                  💬 {item.num_comments} comments
-                </span>
-                <span style={{ 
-                  backgroundColor: '#f3e5f5',
-                  color: '#7b1fa2',
-                  padding: '4px 8px',
-                  borderRadius: '4px',
-                  fontSize: '0.9em',
-                  fontWeight: 'bold'
-                }}>
-                  ⭐ {item.points} points
-                </span>
-              </li>
-            ); 
-        })}
-      </ul>
       
+      <List />
 
+    </div> 
+)
+
+const Search = () => (
+    <div>
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text" />
     </div>
-  )
-}
+  
+)
+
+const List = () => (
+    <ul> 
+      {list.map((item) => (
+        <li key={item.objectID}>
+          <span>
+            <a href={item.url}>{item.title}</a>
+          </span>
+          <span>{item.author}</span>
+          <span>{item.num_comments} comments</span>
+          <span>{item.points} points</span>
+        </li>
+      ))}
+    </ul>
+)
 
 export default App
