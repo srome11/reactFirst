@@ -25,7 +25,7 @@ const list = [
 const App = () => ( 
     <div>
 
-      <h1>My Hacker Stories</h1>
+      <h1>Carthago delenda est</h1>
 
       <Search />
 
@@ -36,13 +36,27 @@ const App = () => (
     </div> 
 )
 
-const Search = () => (
+const Search = () => {
+
+  const handleChange = (event) => {
+    // syn event 
+    console.log(event);
+    // value of target is the input element
+    console.log(event.target.value);
+  }
+
+  const onClick = () => {
+    console.log('clicked');
+  }
+
+  return (  
     <div>
       <label htmlFor="search">Search:</label>
-      <input id="search" type="text" />
+      <input id="search" type="text" onChange={handleChange} onClick={onClick}/>
     </div>
   
-)
+  ); 
+}
 
 const List = () => (
     <ul> 
